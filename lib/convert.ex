@@ -54,7 +54,7 @@ defmodule Convert do
       bin_list = String.split( value, ~r{} )             # split the string into characters
                   |> Enum.filter( fn(x) -> x != "" end)                  # drop any chars that are empty strings (String.split terminates the list with an empty string for some reason)
                   |> Enum.map( fn(x) -> String.to_integer(x) end)        # convert each one into an int; this returns tuples of {i, ""}
-                  |> Enum.map( fn(i) -> { n, _ } = i; n end ) # get the value from each tuple
+                  |> Enum.map( fn(i) -> n = i; n end ) # get the value from each tuple
 
       # now convert that list into an int using the main function
       from_binary bin_list
